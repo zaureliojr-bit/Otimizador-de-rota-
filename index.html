@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotas Motoboy — Protótipo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Rotas <span>Motoboy</span></h1>
+  <p>Adicione os endereços das entregas e otimize o trajeto</p>
+</header>
+
+<div id="map"></div>
+
+<main>
+
+  <div class="card">
+    <button type="button" class="cfg" id="cfgLojaToggle" aria-expanded="false" aria-controls="cfgLojaBody">
+      <span>📍 Endereço de saída (loja)</span>
+      <span id="cfgLojaStatus">Não configurado</span>
+    </button>
+    <div class="cfg-body" id="cfgLojaBody">
+      <p>Todas as rotas vão partir sempre desse endereço, em vez do GPS do motoboy.</p>
+      <div class="cfg-row">
+        <input type="text" id="inputLoja" autocomplete="off" placeholder="Ex: Rua tal, 123, Parque São Bernardo, SBC" />
+        <button class="btn-save" id="btnSaveLoja">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <button type="button" class="cfg" id="cfgRegiaoToggle" aria-expanded="false" aria-controls="cfgRegiaoBody">
+      <span>🏙 Região de busca (opcional)</span>
+      <span id="cfgRegiaoStatus">Não configurado</span>
+    </button>
+    <div class="cfg-body" id="cfgRegiaoBody">
+      <p>Complemento adicionado a toda busca de endereço, tipo ", São Bernardo do Campo, SP". Ajuda a evitar resultados de outras cidades. Deixe em branco pra buscar sem esse filtro.</p>
+      <div class="cfg-row">
+        <input type="text" id="inputRegiao" autocomplete="off" placeholder="Ex: São Bernardo do Campo, SP" />
+        <button class="btn-save" id="btnSaveRegiao">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <button type="button" class="cfg" id="cfgToggle" aria-expanded="false" aria-controls="cfgBody">
+      <span>⚙ Configuração da busca de endereço</span>
+      <span id="cfgStatus">Não configurado</span>
+    </button>
+    <div class="cfg-body" id="cfgBody">
+      <p>
+        Cole abaixo sua chave grátis do LocationIQ. Pra gerar uma:
+        acesse <a href="https://locationiq.com/register" target="_blank" rel="noopener">locationiq.com/register</a>,
+        crie a conta e copie a "Access Token" do painel.
+      </p>
+      <div class="cfg-row">
+        <input type="text" id="inputKey" autocomplete="off" placeholder="Cole sua Access Token aqui" />
+        <button class="btn-save" id="btnSaveKey">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="add-row">
+      <input type="text" id="inputEndereco" autocomplete="off" placeholder="Ex: Rua Marechal Deodoro, 200, São Bernardo do Campo" />
+      <button class="btn-add" id="btnAdd" aria-label="Adicionar endereço">+</button>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <ul id="lista"></ul>
+    <div id="vazio" class="empty">Nenhum endereço adicionado ainda.</div>
+
+    <button class="btn-primary" id="btnOtimizar" disabled>Otimizar rota</button>
+    <button class="btn-secondary" id="btnLimpar">Limpar todos</button>
+
+    <div class="resumo" id="resumo" style="display:none;">
+      <span>Distância total: <b id="distTotal">-</b></span>
+      <span>Tempo estimado: <b id="tempoTotal">-</b></span>
+    </div>
+
+    <div id="iniciarRow" style="display:none; gap:8px; margin-top:10px;">
+      <button class="btn-primary" id="btnGoogleMaps" style="background:#1a73e8;">Iniciar no Google Maps</button>
+    </div>
+    <div id="iniciarRow2" style="display:none; margin-top:8px;">
+      <button class="btn-primary" id="btnWaze" style="background:#33ccff; color:#0B1F3A;">Iniciar no Waze</button>
+    </div>
+  </div>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="js/config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/geocode.js"></script>
+<script src="js/mapview.js"></script>
+<script src="js/route.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
