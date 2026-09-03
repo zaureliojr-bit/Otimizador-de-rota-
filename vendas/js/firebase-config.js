@@ -21,12 +21,12 @@
 // Sem isso preenchido, o app fica preso na tela de PIN (erro de conexão).
 
 const FIREBASE_CONFIG = {
-  apiKey: 'COLE_AQUI_A_apiKey',
-  authDomain: 'SEU_PROJETO.firebaseapp.com',
-  projectId: 'SEU_PROJETO',
-  storageBucket: 'SEU_PROJETO.appspot.com',
-  messagingSenderId: 'COLE_AQUI_O_messagingSenderId',
-  appId: 'COLE_AQUI_O_appId'
+  apiKey: 'AIzaSyCktwlYy2T-BseT4F4MCLI5vcfwxy9qqF0',
+  authDomain: 'pdv-roupas-874c1.firebaseapp.com',
+  projectId: 'pdv-roupas-874c1',
+  storageBucket: 'pdv-roupas-874c1.firebasestorage.app',
+  messagingSenderId: '469082777865',
+  appId: '1:469082777865:web:bf375fd4d9fe1f8ef98bd8'
 };
 
 // PIN de acesso compartilhado da loja. Troque para o que preferir — é o
