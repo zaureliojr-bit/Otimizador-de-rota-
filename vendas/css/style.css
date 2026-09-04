@@ -17,13 +17,27 @@ body{
   min-height:100vh;
 }
 header{
-  padding:18px 16px 0;
+  padding:calc(18px + env(safe-area-inset-top)) 16px 0;
   background:var(--navy2);
   border-bottom:2px solid var(--yellow);
   position:sticky;
   top:0;
   z-index:10;
 }
+.btn-sair{
+  position:absolute;
+  top:calc(14px + env(safe-area-inset-top));
+  right:16px;
+  background:none;
+  color:var(--gray);
+  font-size:11.5px;
+  font-weight:700;
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:20px;
+}
+.btn-sair:hover{color:var(--red); border-color:var(--red);}
+
 header h1{
   margin:0;
   font-size:18px;
@@ -98,7 +112,7 @@ main{
 
 .add-row{display:flex; gap:8px;}
 
-input[type=text], input[type=number], input[type=date], select{
+input[type=text], input[type=number], input[type=date], input[type=password], select, textarea{
   width:100%;
   padding:11px 12px;
   border-radius:10px;
@@ -108,7 +122,8 @@ input[type=text], input[type=number], input[type=date], select{
   font-size:14.5px;
   font-family:inherit;
 }
-input::placeholder{color:var(--gray);}
+input::placeholder, textarea::placeholder{color:var(--gray);}
+textarea{resize:vertical; margin-top:8px;}
 
 button{
   border:none;
@@ -274,6 +289,11 @@ button{
   min-height:16px;
 }
 .status.erro{color:var(--red);}
+pre.status{
+  white-space:pre-wrap;
+  font-family:inherit;
+  margin:8px 0 0;
+}
 
 .lista-simples{list-style:none; margin:0; padding:0;}
 .lista-simples li{
@@ -289,4 +309,42 @@ button{
 @media (max-width: 480px){
   .form-grid{grid-template-columns:1fr;}
   .variacao-row{grid-template-columns:1fr 1fr 70px auto;}
+}
+
+.pin-gate{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.pin-card{
+  width:100%;
+  max-width:320px;
+  background:var(--navy2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+  text-align:center;
+}
+.pin-card h1{margin:0 0 4px; font-size:20px;}
+.pin-card h1 span{color:var(--yellow);}
+.pin-card p{margin:0 0 18px; font-size:12.5px; color:var(--gray);}
+.pin-boxes{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:14px;
+}
+input.pin-box{
+  width:48px;
+  height:56px;
+  padding:0;
+  text-align:center;
+  font-size:24px;
+  font-weight:800;
+}
+input.pin-box:focus{
+  outline:none;
+  border-color:var(--yellow);
 }
