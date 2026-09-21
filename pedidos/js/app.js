@@ -32,6 +32,12 @@ async function processarArquivo(arquivo){
   status.classList.remove('erro');
   status.textContent = 'Lendo arquivo...';
 
+  if(typeof XLSX === 'undefined'){
+    status.classList.add('erro');
+    status.textContent = 'Não foi possível carregar o leitor de planilhas. Verifique sua internet e recarregue a página.';
+    return;
+  }
+
   try{
     const linhas = await lerArquivoPlanilha(arquivo);
     if(!linhas.length) throw new Error('Planilha vazia.');
